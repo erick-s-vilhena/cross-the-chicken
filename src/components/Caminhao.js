@@ -41,6 +41,28 @@ export function Caminhao(inicialTileIndex, direcao, color){
 
     caminhao.add(cabine)
 
+    const parabrisa = new THREE.Mesh(
+        new THREE.BoxGeometry(2, 24, 10),
+        new THREE.MeshLambertMaterial({
+            color: '#0bb5e3',
+            flatShading: true,
+        })
+    );
+    parabrisa.position.x = 50;
+    parabrisa.position.z = 26;
+    caminhao.add(parabrisa)
+
+    const janela = new THREE.Mesh(
+        new THREE.BoxGeometry(20, 32, 10),
+        new THREE.MeshLambertMaterial({
+            color: '#0bb5e3',
+            flatShading: true,
+        })
+    );
+    janela.position.x = 36;
+    janela.position.z = 26;
+    caminhao.add(janela)
+
 
     const rodaFrontal = Roda(36);
     caminhao.add(rodaFrontal);

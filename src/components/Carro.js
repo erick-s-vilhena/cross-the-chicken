@@ -39,6 +39,29 @@ export function Carro(inicialTileIndex, direcao, color){
 
     carro.add(cabine)
 
+    const parabrisa = new THREE.Mesh(
+        new THREE.BoxGeometry(34, 20, 8),
+        new THREE.MeshLambertMaterial({
+            color: '#0bb5e3',
+            flatShading: true,
+        })
+    );
+    parabrisa.position.x = -6;
+    parabrisa.position.z = 26;
+    carro.add(parabrisa)
+
+    const janela = new THREE.Mesh(
+        new THREE.BoxGeometry(26, 26, 8),
+        new THREE.MeshLambertMaterial({
+            color: '#0bb5e3',
+            flatShading: true,
+        })
+    );
+    janela.position.x = -6;
+    janela.position.z = 26;
+    carro.add(janela)
+
+
     const rodaFrontal = Roda(18);
     carro.add(rodaFrontal);
 

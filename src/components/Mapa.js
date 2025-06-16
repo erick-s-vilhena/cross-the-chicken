@@ -11,7 +11,7 @@ export const metaData = [
     {
         type: 'floresta',
         arvores: [
-            { tileIndex: -3, height: 50 },
+            { tileIndex: 10, height: 50 },
             { tileIndex: 2, height: 30 },
             { tileIndex: 5, height: 50 },
         ],
@@ -19,10 +19,10 @@ export const metaData = [
 
     {
         type: 'carro',
-        direcao: false,
+        direcao: true,
         velocidade: 200,
         veiculos: [{
-            inicialTileIndex: 2,
+            inicialTileIndex: 0,
             color: 0xff0000,
         }]
     },
@@ -35,13 +35,23 @@ export const metaData = [
             inicialTileIndex: -4,
             color: 0x00ff00,
         }]
+    },
+
+    {
+        type: 'cerca',
+        cerca: [{
+            inicialTileIndex: 0,
+            color: 0x00ff00,
+        }]
     }
 ];
 
 export const mapa = new THREE.Group();
 
 export function iniciarMapa(){
-    for(let rowIndex = 0; rowIndex > -5; rowIndex--){
+    addLimites();
+
+    for(let rowIndex = 0; rowIndex > -4; rowIndex--){
         const grama = Grama(rowIndex);
         mapa.add(grama);
     }
@@ -50,10 +60,19 @@ export function iniciarMapa(){
     addRows();
 }
 
-export function addRows(){
+export function addLimites(){
     metaData.forEach((rowData, index) => {
         const rowIndex = index + 1;
 
+
+    })
+}
+
+export function addRows(){
+    metaData.forEach((rowData, index) => {
+        const rowIndex = index + 1;
+        
+        console.log(rowIndex)
         if(rowData.type === 'floresta'){
             const row = Grama(rowIndex);
 
