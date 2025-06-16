@@ -1,0 +1,38 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.controles{
+  bottom: 0;
+  padding: 20px;
+  position: absolute;
+  width: 100%;
+  user-select: none;
+}
+
+.controles .aux{
+  width: 300px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+}
+
+.controles button{
+  flex-grow: 1;
+  height: 50px;
+  border: 0;
+  margin: 5px;
+  border: 1px solid lightgray;
+  box-shadow: 3px 5px 0px 0px rgba(0, 0, 0, 0.75);
+  outline: none;
+  cursor: pointer;
+}
+
+.controles .forward{
+  width: 100%;
+}
