@@ -1,5 +1,6 @@
 import * as THREE from 'three'
 import { posicaoInvalida } from '../utilities/posicaoInvalida';
+import { metaData as rows, addRows } from './Mapa';
 
 export const jogador = Jogador();
 
@@ -37,7 +38,11 @@ function Jogador(){
 
     jogador.add(crista)
 
-    return jogador;
+    
+    const jogadorContainer = new THREE.Group();
+    jogadorContainer.add(jogador);
+
+    return jogadorContainer
 }
 
 export const posicao = {
@@ -66,4 +71,9 @@ export function stepCompleta(){
     if(direcao === 'back'){ posicao.atualRow -= 1 };
     if(direcao === 'left'){ posicao.atualTile -= 1 };
     if(direcao === 'right'){ posicao.atualTile += 1 };
+
+
+    if(posicao.atualRow > rows.length - 10){
+        addRows();
+    }
 }

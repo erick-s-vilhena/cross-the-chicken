@@ -17,11 +17,12 @@ const luzAmbiente = new THREE.AmbientLight();
 cena.add(luzAmbiente)
 
 const luzDirecionada = LuzDirecional();
-cena.add(luzDirecionada);
+luzDirecionada.target = jogador;
+jogador.add(luzDirecionada);
 
 
 const camera = Camera();
-cena.add(camera)
+jogador.add(camera);
 
 iniciarJogo();
 

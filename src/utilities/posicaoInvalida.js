@@ -21,7 +21,10 @@ export function posicaoInvalida(atualPosicao, moves){
         finalRow.type === 'floresta' &&
         finalRow.arvores.some(
             (arvore) => arvore.tileIndex === posicaoFinal.tileIndex
-        )
+        ) 
+        ||
+        finalRow &&
+        finalRow.type === 'cerca'
     ) {
         return false
     }

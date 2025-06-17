@@ -6,45 +6,11 @@ import { Arvore } from './Arvore';
 import { Estrada } from './Estrada';
 import { Carro } from './Carro';
 import { Caminhao } from './Caminhao'
+import { maxTileIndex, minTileIndex, tilesPerRow } from '../constantes';
+import { Cerca } from './Cerca';
+import { gerarRows } from '../utilities/gerarRows';
 
-export const metaData = [
-    {
-        type: 'floresta',
-        arvores: [
-            { tileIndex: -4, height: 50 },
-            { tileIndex: 2, height: 30 },
-            { tileIndex: 5, height: 50 },
-        ],
-    },
-
-    {
-        type: 'carro',
-        direcao: true,
-        velocidade: 200,
-        veiculos: [{
-            inicialTileIndex: 0,
-            color: 0xff0000,
-        }]
-    },
-
-    {
-        type: 'caminhao',
-        direcao: true,
-        velocidade: 80,
-        veiculos: [{
-            inicialTileIndex: -4,
-            color: 0x00ff00,
-        }]
-    },
-
-    {
-        type: 'cerca',
-        cerca: [{
-            inicialTileIndex: 0,
-            color: 0x00ff00,
-        }]
-    }
-];
+export const metaData = [];
 
 export const mapa = new THREE.Group();
 
@@ -61,18 +27,29 @@ export function iniciarMapa(){
 }
 
 export function addLimites(){
-    metaData.forEach((rowData, index) => {
-        const rowIndex = index + 1;
 
+            const row = Grama(-3);
 
-    })
+            for(let i = minTileIndex; i <= maxTileIndex; i++){
+                const cerca = Cerca(i);
+
+                row.add(cerca)
+            }
+
+            mapa.add(row)
+    
 }
 
 export function addRows(){
-    metaData.forEach((rowData, index) => {
-        const rowIndex = index + 1;
+    const newMetaData = gerarRows(20);
+
+    const inicioIndex = metaData.length; 
+
+    metaData.push(... newMetaData);
+
+    newMetaData.forEach((rowData, index) => {
+        const rowIndex = inicioIndex + index + 1;
         
-        console.log(rowIndex)
         if(rowData.type === 'floresta'){
             const row = Grama(rowIndex);
 

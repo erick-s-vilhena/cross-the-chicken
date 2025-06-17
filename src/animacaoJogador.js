@@ -40,7 +40,7 @@ function setPosition(progresso){
 
     jogador.position.x = THREE.MathUtils.lerp(startX, endX, progresso);
     jogador.position.y = THREE.MathUtils.lerp(startY, endY, progresso);
-    jogador.position.z = Math.sin(progresso * Math.PI) * 8;
+    jogador.children[0].position.z = Math.sin(progresso * Math.PI) * 10;
 }
 
 function setRotation(progresso){
@@ -51,8 +51,8 @@ function setRotation(progresso){
     if(moves[0] === 'left'){ endRotation = Math.PI / 2 };
     if(moves[0] === 'right'){ endRotation = Math.PI / -2 };
 
-    jogador.rotation.z = THREE.MathUtils.lerp(
-        jogador.rotation.z,
+    jogador.children[0].rotation.z = THREE.MathUtils.lerp(
+        jogador.children[0].rotation.z,
         endRotation,
         progresso
     )
