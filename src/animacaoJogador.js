@@ -35,8 +35,8 @@ function setPosition(progresso){
 
     if(moves[0] === 'left'){ endX -= tileSize };
     if(moves[0] === 'right'){ endX += tileSize };
-    if(moves[0] === 'forward'){ endY += tileSize };
-    if(moves[0] === 'backward'){ endY -= tileSize };
+    if(moves[0] === 'front'){ endY += tileSize };
+    if(moves[0] === 'back'){ endY -= tileSize };
 
     jogador.position.x = THREE.MathUtils.lerp(startX, endX, progresso);
     jogador.position.y = THREE.MathUtils.lerp(startY, endY, progresso);
@@ -46,8 +46,8 @@ function setPosition(progresso){
 function setRotation(progresso){
     let endRotation = 0;
 
-    if(moves[0] === 'forward'){ endRotation = 0 };
-    if(moves[0] === 'backward'){ endRotation = Math.PI * 2 };
+    if(moves[0] === 'front'){ endRotation = 0 };
+    if(moves[0] === 'back'){ endRotation = Math.PI * 2 };
     if(moves[0] === 'left'){ endRotation = Math.PI / 2 };
     if(moves[0] === 'right'){ endRotation = Math.PI / -2 };
 

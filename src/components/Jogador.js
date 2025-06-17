@@ -1,4 +1,5 @@
 import * as THREE from 'three'
+import { posicaoInvalida } from '../utilities/posicaoInvalida';
 
 export const jogador = Jogador();
 
@@ -47,14 +48,22 @@ export const posicao = {
 export const moves = [];
 
 export function MoveJogador(direcao){
+    const moveValido = posicaoInvalida({
+        rowIndex: posicao.atualRow,
+        tileIndex: posicao.atualTile
+    },
+    [...moves, direcao]);
+
+    if(!moveValido) { return }
+
     moves.push(direcao)
 }
 
 export function stepCompleta(){
     const direcao = moves.shift();
 
-    if(direcao === 'forward'){ posicao.atualRow += 1 };
-    if(direcao === 'backward'){ posicao.atualRow -= 1 };
+    if(direcao === 'front'){ posicao.atualRow += 1 };
+    if(direcao === 'back'){ posicao.atualRow -= 1 };
     if(direcao === 'left'){ posicao.atualTile -= 1 };
     if(direcao === 'right'){ posicao.atualTile += 1 };
 }

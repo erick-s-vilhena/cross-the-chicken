@@ -1,11 +1,11 @@
 import { MoveJogador } from "./components/Jogador";
 
-document.querySelector('.forward')?.addEventListener('click', ()=> { 
-    MoveJogador('forward')
+document.querySelector('.front')?.addEventListener('click', ()=> { 
+    MoveJogador('front')
 })
 
-document.querySelector('.backward')?.addEventListener('click', ()=> { 
-    MoveJogador('backward')
+document.querySelector('.back')?.addEventListener('click', ()=> { 
+    MoveJogador('back')
 })
 
 document.querySelector('.left')?.addEventListener('click', ()=> { 
@@ -27,7 +27,7 @@ window.addEventListener('keydown', (e) => {
         
         if(!click_W){ 
             click_W = true;
-            MoveJogador('forward') 
+            MoveJogador('front') 
         }
     }
 
@@ -36,7 +36,7 @@ window.addEventListener('keydown', (e) => {
         
         if(!click_S){ 
             click_S = true;
-            MoveJogador('backward') 
+            MoveJogador('back') 
         }
     }
 

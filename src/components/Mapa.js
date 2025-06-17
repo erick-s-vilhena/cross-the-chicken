@@ -11,7 +11,7 @@ export const metaData = [
     {
         type: 'floresta',
         arvores: [
-            { tileIndex: 10, height: 50 },
+            { tileIndex: -4, height: 50 },
             { tileIndex: 2, height: 30 },
             { tileIndex: 5, height: 50 },
         ],

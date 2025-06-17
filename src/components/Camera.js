@@ -1,7 +1,7 @@
 import * as THREE from 'three'
 
 export function Camera(){
-    const size = 500;
+    const size = 300;
 
     const viewRadio = window.innerWidth / window.innerHeight;
 
