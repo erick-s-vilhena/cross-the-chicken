@@ -39,8 +39,6 @@ function gerarFloresta(){
 
         do{
             tileIndex = THREE.MathUtils.randInt(minTileIndex, maxTileIndex);
-
-            console.log(tileIndex)
         } 
         while (tileOcupada.has(tileIndex));
 
