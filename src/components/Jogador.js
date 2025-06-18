@@ -76,4 +76,9 @@ export function stepCompleta(){
     if(posicao.atualRow > rows.length - 10){
         addRows();
     }
+
+    const score = document.querySelector('.score');
+    if(score){
+        score.innerHTML = posicao.atualRow.toString();
+    }
 }

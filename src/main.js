@@ -8,6 +8,7 @@ import { LuzDirecional } from './components/LuzDirecional';
 import { animacaoVeiculos } from './animacaoVeiculos';
 import './entradaJogador';
 import { animacaoJogador } from './animacaoJogador';
+import { colisao } from './colisao';
 
 const cena = new THREE.Scene();
 cena.add(jogador)
@@ -36,6 +37,7 @@ renderer.setAnimationLoop(animate);
 function animate(){
   animacaoVeiculos();
   animacaoJogador();
+  colisao();
 
   renderer.render(cena, camera)
 }
