@@ -1,15 +1,22 @@
 import * as THREE from 'three'
 import { minTileIndex, maxTileIndex } from '../constantes'
 
-export function gerarRows(quantidade){
+export function gerarRows(){
     const rows = []
 
-    for(let i = 0; i < quantidade; i++){
+    for(let i = 0; i < 3; i++){
+        const rowData = gerarFloresta();
+
+        rows.push(rowData);
+    }
+    
+
+    for(let i = 0; i < 10; i++){
         const rowData = Linha();
 
         rows.push(rowData);
     }
-
+    
     return rows;
 }
 
@@ -18,7 +25,7 @@ function randomElemento(array){
 }
 
 function Linha(){
-    const type =  randomElemento(['carro', 'caminhao', 'floresta'])
+    const type =  randomElemento(['carro', 'caminhao'])
 
     if(type === 'carro') {
         return gerarCarro();
@@ -117,4 +124,5 @@ function gerarCaminhao(){
         veiculos
     }
 }
+
 

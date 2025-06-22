@@ -9,7 +9,7 @@ export function animacaoVeiculos(){
 
     //animaçao dos veiculos
     rows.forEach((rowData)=>{
-        if(rowData.type === 'carro' || rowData.type === 'caminhao'){
+        if(rowData.type === 'carro' || rowData.type === 'caminhao' || rowData.type === 'tronco'){
             const inicioDaLinha = (minTileIndex - 2) * tileSize;
 
             const finalDaLinha = (maxTileIndex + 2) * tileSize;

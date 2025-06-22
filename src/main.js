@@ -3,12 +3,13 @@ import { Renderer } from './components/Renderer';
 import { Camera } from './components/Camera';
 import { jogador } from './components/Jogador';
 import './style.css'
-import { iniciarMapa, mapa } from './components/Mapa';
+import { arrayTronco, iniciarMapa, mapa } from './components/Mapa';
 import { LuzDirecional } from './components/LuzDirecional';
 import { animacaoVeiculos } from './animacaoVeiculos';
 import './entradaJogador';
 import { animacaoJogador } from './animacaoJogador';
 import { colisao } from './colisao';
+import { animacaoTronco } from './components/Tronco';
 
 const cena = new THREE.Scene();
 cena.add(jogador)
@@ -37,6 +38,7 @@ renderer.setAnimationLoop(animate);
 function animate(){
   animacaoVeiculos();
   animacaoJogador();
+  animacaoTronco(arrayTronco)
   colisao();
 
   renderer.render(cena, camera)

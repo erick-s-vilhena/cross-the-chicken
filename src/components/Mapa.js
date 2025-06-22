@@ -6,42 +6,56 @@ import { Arvore } from './Arvore';
 import { Estrada } from './Estrada';
 import { Carro } from './Carro';
 import { Caminhao } from './Caminhao'
-import { maxTileIndex, minTileIndex, tilesPerRow } from '../constantes';
+import { maxTileIndex, minTileIndex, tileSize, tilesPerRow } from '../constantes';
 import { Cerca } from './Cerca';
 import { gerarRows } from '../utilities/gerarRows';
+import { Rio } from './Rio';
+import { Tronco } from './Tronco';
 
 export const metaData = [];
+export const arrayTronco = []
 
 export const mapa = new THREE.Group();
 
 export function iniciarMapa(){
+    addTronco();
     addLimites();
 
-    for(let rowIndex = 0; rowIndex > -4; rowIndex--){
-        const grama = Grama(rowIndex);
-        mapa.add(grama);
-    }
-    // const grama = Grama(0);
-    // mapa.add(grama);
+    const grama = Grama(0);
+    mapa.add(grama);
+
     addRows();
+}
+
+function addTronco(){
+    for(let i = -2; i >= -10; i--){
+        const rio = Rio(i);
+
+        if(i % 2 !== 0){
+            const tronco = Tronco(Math.floor(Math.random() * 21) - 10, false)
+            rio.add(tronco)
+
+            arrayTronco.push(tronco)
+        }
+        mapa.add(rio)
+    }
 }
 
 export function addLimites(){
 
-            const row = Grama(-3);
+    const row = Grama(-1);
 
-            for(let i = minTileIndex; i <= maxTileIndex; i++){
-                const cerca = Cerca(i);
+    for(let i = minTileIndex; i <= maxTileIndex; i++){
+        const cerca = Cerca(i);
 
-                row.add(cerca)
-            }
+        row.add(cerca)
+    }
 
-            mapa.add(row)
-    
+    mapa.add(row)  
 }
 
 export function addRows(){
-    const newMetaData = gerarRows(20);
+    const newMetaData = gerarRows();
 
     const inicioIndex = metaData.length; 
 
@@ -85,6 +99,24 @@ export function addRows(){
 
             rowData.veiculos.forEach((veiculo) =>{
                 const caminhao = Caminhao(
+                    veiculo.inicialTileIndex,
+                    rowData.direcao,
+                    veiculo.color
+                );
+
+                veiculo.ref = caminhao
+
+                row.add(caminhao);
+            });
+
+            mapa.add(row)
+        }
+
+        if(rowData.type === 'rio'){
+            const row = Estrada(rowIndex);
+
+            rowData.veiculos.forEach((veiculo) =>{
+                const caminhao = Tronco(
                     veiculo.inicialTileIndex,
                     rowData.direcao,
                     veiculo.color

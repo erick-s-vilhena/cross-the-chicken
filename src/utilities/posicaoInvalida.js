@@ -7,7 +7,7 @@ export function posicaoInvalida(atualPosicao, moves){
     const posicaoFinal = calcularPosicao(atualPosicao, moves);
 
     if(
-        posicaoFinal.rowIndex === -3 ||
+        posicaoFinal.rowIndex === -1 ||
         posicaoFinal.tileIndex === minTileIndex - 1 ||
         posicaoFinal.tileIndex === maxTileIndex + 1
     ) {
