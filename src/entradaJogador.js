@@ -1,4 +1,4 @@
-import { MoveJogador } from "./components/Jogador";
+import { MoveJogador } from "./objetos3D/Jogador";
 
 let click_W = false;
 let click_S = false;

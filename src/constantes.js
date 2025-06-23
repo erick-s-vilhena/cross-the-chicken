@@ -1,5 +1,5 @@
-export const minTileIndex = -10;
-export const maxTileIndex = 10 ;
+export const minTileIndex = -20;
+export const maxTileIndex = 20 ;
 
 export const tilesPerRow = maxTileIndex - minTileIndex + 1;
 

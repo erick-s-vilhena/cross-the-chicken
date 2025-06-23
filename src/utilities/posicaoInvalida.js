@@ -8,8 +8,8 @@ export function posicaoInvalida(atualPosicao, moves){
 
     if(
         posicaoFinal.rowIndex === -1 ||
-        posicaoFinal.tileIndex === minTileIndex - 1 ||
-        posicaoFinal.tileIndex === maxTileIndex + 1
+        posicaoFinal.tileIndex === minTileIndex + 10 ||
+        posicaoFinal.tileIndex === maxTileIndex - 10
     ) {
         return false
     }

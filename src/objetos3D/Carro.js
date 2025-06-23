@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import { tileSize } from '../constantes';
-import { Roda } from './Roda';
+import { Roda } from '../objetos3D/Roda';
 
 export function Carro(inicialTileIndex, direcao, color){
     const carro = new THREE.Group();

@@ -15,8 +15,12 @@ export function gerarRows(){
         const rowData = gerarRua();
 
         if(i == 4){
-            rowData.maca = {
+            const type = randomElemento(['maca', 'nada']);
+
+            if(type === 'maca'){
+                rowData.maca = {
                 type: 'maca',
+                }
             }
         }
         rows.push(rowData);
@@ -46,7 +50,7 @@ function gerarRua(){
 function gerarFloresta(){
     const tileOcupada = new Set();
 
-    const arvores = Array.from({ length: 4 }, ()=>{
+    const arvores = Array.from({ length: 8 }, ()=>{
         let tileIndex;
 
         do{
@@ -72,7 +76,7 @@ function gerarCarro(){
 
     const tileOcupada = new Set();
 
-    const veiculos = Array.from({ length: 3 }, ()=>{
+    const veiculos = Array.from({ length: 6 }, ()=>{
         let inicialTileIndex;
 
         do{
@@ -103,7 +107,7 @@ function gerarCaminhao(){
 
     const tileOcupada = new Set();
 
-    const veiculos = Array.from({ length: 2 }, ()=>{
+    const veiculos = Array.from({ length: 4 }, ()=>{
         let inicialTileIndex;
 
         do{

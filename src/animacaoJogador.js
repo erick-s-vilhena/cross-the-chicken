@@ -1,6 +1,6 @@
 import * as THREE from 'three';
-import { moves, stepCompleta } from './components/Jogador';
-import { jogador, posicao } from './components/Jogador';
+import { moves, stepCompleta } from './objetos3D/Jogador';
+import { jogador, posicao } from './objetos3D/Jogador';
 import { tileSize } from './constantes';
 
 const moveClock = new THREE.Clock(false);

@@ -1,6 +1,6 @@
 import * as THREE from 'three'
 import { posicaoInvalida } from '../utilities/posicaoInvalida';
-import { metaData as rows, addRows } from './Mapa';
+import { metaData as rows, addRows } from '../components/Mapa';
 
 export const jogador = Jogador();
 

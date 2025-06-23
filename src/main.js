@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import { Renderer } from './components/Renderer'; 
 import { Camera } from './components/Camera';
-import { iniciarJogador, jogador } from './components/Jogador';
+import { iniciarJogador, jogador } from './objetos3D/Jogador';
 import './style.css'
 import { arrayTronco, iniciarMapa, mapa } from './components/Mapa';
 import { LuzDirecional } from './components/LuzDirecional';
@@ -9,7 +9,7 @@ import { animacaoVeiculos } from './animacaoVeiculos';
 import './entradaJogador';
 import { animacaoJogador } from './animacaoJogador';
 import { colisao } from './colisao';
-import { animacaoTronco } from './components/Tronco';
+import { animacaoTronco } from './objetos3D/Tronco';
 
 const cena = new THREE.Scene();
 cena.add(jogador)

@@ -15,8 +15,8 @@ export function LuzDirecional(){
     luzDirecionada.shadow.camera.right = 400
     luzDirecionada.shadow.camera.top = 400
     luzDirecionada.shadow.camera.bottom = -400
-    luzDirecionada.shadow.camera.near = 50
-    luzDirecionada.shadow.camera.far =400
+    luzDirecionada.shadow.camera.near = 10
+    luzDirecionada.shadow.camera.far = 600
 
     return luzDirecionada;
 }

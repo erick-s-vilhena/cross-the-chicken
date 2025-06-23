@@ -1,18 +1,23 @@
 import * as THREE from 'three'
 
 import { Grama } from './Grama';
-import { Arvore } from './Arvore';
+import { Arvore } from '../objetos3D/Arvore';
 
 import { Estrada } from './Estrada';
-import { Carro } from './Carro';
-import { Caminhao } from './Caminhao'
-import { maxTileIndex, minTileIndex, tileSize, tilesPerRow } from '../constantes';
-import { Cerca } from './Cerca';
-import { gerarRows } from '../utilities/gerarRows';
+import { Carro } from '../objetos3D/Carro';
+import { Caminhao } from '../objetos3D/Caminhao';
+import { Maca } from '../objetos3D/Maca';
+
 import { Rio } from './Rio';
-import { Tronco } from './Tronco';
-import { Maca } from './Maca';
-import { jogador } from './Jogador';
+import { Tronco } from '../objetos3D/Tronco';
+
+import { jogador } from '../objetos3D/Jogador';
+import { Cerca } from '../objetos3D/Cerca';
+
+import { maxTileIndex, minTileIndex } from '../constantes';
+import { gerarRows } from '../utilities/gerarRows';
+
+
 
 export const metaData = [];
 export const arrayTronco = []

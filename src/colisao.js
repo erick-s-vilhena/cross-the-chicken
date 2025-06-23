@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import { metaData as rows } from './components/Mapa';
-import { jogador, posicao } from './components/Jogador';
+import { jogador, posicao } from './objetos3D/Jogador';
 
 const result = document.querySelector('.result-container');
 const score_final = document.querySelector('.score-final');
@@ -52,14 +52,16 @@ export function colisao(){
         const jogadorBox = new THREE.Box3();
         jogadorBox.setFromObject(jogador)
 
-        const macaBox = new THREE.Box3();
-        macaBox.setFromObject(row.maca.ref)
-        
-        if(jogadorBox.intersectsBox(macaBox)){
-            jogador.children[0].grande = true
+        if(row.maca.ref){
+            const macaBox = new THREE.Box3();
+            macaBox.setFromObject(row.maca.ref)
+            
+            if(jogadorBox.intersectsBox(macaBox)){
+                jogador.children[0].grande = true
 
-            rows[posicao.atualRow - 1].maca.ref.position.z = -14
+                rows[posicao.atualRow - 1].maca.ref.position.z = -14
 
+            }
         }
         
     }

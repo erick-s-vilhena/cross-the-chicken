@@ -1,5 +1,4 @@
 import * as THREE from 'three'
-import { tileSize } from '../constantes'
 
 export function Maca(){
     const maca = new THREE.Group();
