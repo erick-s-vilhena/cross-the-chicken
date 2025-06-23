@@ -22,7 +22,6 @@ const luzDirecionada = LuzDirecional();
 luzDirecionada.target = jogador;
 jogador.add(luzDirecionada);
 
-
 const camera = Camera();
 jogador.add(camera);
 

@@ -50,7 +50,7 @@ function gerarRua(){
 function gerarFloresta(){
     const tileOcupada = new Set();
 
-    const arvores = Array.from({ length: 8 }, ()=>{
+    const arvores = Array.from({ length: 10 }, ()=>{
         let tileIndex;
 
         do{
@@ -76,7 +76,7 @@ function gerarCarro(){
 
     const tileOcupada = new Set();
 
-    const veiculos = Array.from({ length: 6 }, ()=>{
+    const veiculos = Array.from({ length: 8 }, ()=>{
         let inicialTileIndex;
 
         do{
@@ -107,7 +107,7 @@ function gerarCaminhao(){
 
     const tileOcupada = new Set();
 
-    const veiculos = Array.from({ length: 4 }, ()=>{
+    const veiculos = Array.from({ length: 6 }, ()=>{
         let inicialTileIndex;
 
         do{

@@ -13,6 +13,7 @@ import { Tronco } from '../objetos3D/Tronco';
 
 import { jogador } from '../objetos3D/Jogador';
 import { Cerca } from '../objetos3D/Cerca';
+import { Limites } from '../objetos3D/Limites';
 
 import { maxTileIndex, minTileIndex } from '../constantes';
 import { gerarRows } from '../utilities/gerarRows';
@@ -134,8 +135,14 @@ export function addRows(){
             mapa.add(row)
         }
 
+        //parede limite
+        const limitesDw = Limites(15, rowIndex - 1, 20);
 
+        mapa.add(limitesDw)
 
+        const limitesUp = Limites(-15, rowIndex - 1, -20);
+
+        mapa.add(limitesUp)
 
     })
 }
