@@ -4,8 +4,14 @@ import { metaData as rows, addRows } from './Mapa';
 
 export const jogador = Jogador();
 
+const linhaPassada = new Set();
+
 function Jogador(){
     const jogador = new THREE.Group();
+
+    jogador.vivo = true
+    jogador.contador = 0
+    jogador.grande = true 
 
     const body = new THREE.Mesh(
         new THREE.BoxGeometry(15, 15, 20),
@@ -37,7 +43,6 @@ function Jogador(){
     crista.receiveShadow = true;
 
     jogador.add(crista)
-
     
     const jogadorContainer = new THREE.Group();
     jogadorContainer.add(jogador);
@@ -77,8 +82,36 @@ export function stepCompleta(){
         addRows();
     }
 
+
+    //controle de pontuação 
     const score = document.querySelector('.score');
-    if(score){
-        score.innerHTML = posicao.atualRow.toString();
+
+    if( posicao.atualRow > 5 &&
+        (posicao.atualRow - 1 ) % 12 == 0 && 
+        !linhaPassada.has(posicao.atualRow)
+    ){
+        jogador.children[0].contador += 1;
+        linhaPassada.add(posicao.atualRow)
     }
+
+    if(score){
+        score.innerHTML = jogador.children[0].contador;
+    }
+}
+
+//reinicia as mtricas do jogador
+export function iniciarJogador(){
+    jogador.position.x = 0;
+    jogador.position.y = 0;
+    jogador.children[0].position.z = 0;
+    jogador.children[0].vivo = true
+    jogador.children[0].grande = false
+
+    posicao.atualRow = 0;
+    posicao.atualTile = 0;
+
+    linhaPassada.clear();
+    jogador.children[0].contador = 0;
+
+    moves.length = 0
 }

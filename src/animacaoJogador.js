@@ -17,8 +17,10 @@ export function animacaoJogador(){
     const stepTime = 0.2;
     const progresso = Math.min(1, moveClock.getElapsedTime() / stepTime);
 
-    setPosition(progresso);
-    setRotation(progresso);
+    if(jogador.children[0].vivo){
+        setPosition(progresso);
+        setRotation(progresso);
+    }
 
     if(progresso >= 1){
         stepCompleta();

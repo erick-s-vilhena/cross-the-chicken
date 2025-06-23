@@ -11,6 +11,8 @@ import { Cerca } from './Cerca';
 import { gerarRows } from '../utilities/gerarRows';
 import { Rio } from './Rio';
 import { Tronco } from './Tronco';
+import { Maca } from './Maca';
+import { jogador } from './Jogador';
 
 export const metaData = [];
 export const arrayTronco = []
@@ -18,6 +20,11 @@ export const arrayTronco = []
 export const mapa = new THREE.Group();
 
 export function iniciarMapa(){
+    //limpar o mapar
+    metaData.length = 0;
+    mapa.remove(...mapa.children);
+
+    //addionar linhas
     addTronco();
     addLimites();
 
@@ -78,18 +85,24 @@ export function addRows(){
 
         if(rowData.type === 'carro'){
             const row = Estrada(rowIndex);
-
+            
             rowData.veiculos.forEach((veiculo) =>{
                 const carro = Carro(
                     veiculo.inicialTileIndex,
                     rowData.direcao,
                     veiculo.color
                 );
-
+                
                 veiculo.ref = carro;
-
                 row.add(carro);
             });
+
+            if(rowData.maca && jogador.children[0].grande === false){
+                const maca = Maca();
+
+                rowData.maca.ref = maca
+                row.add(maca)
+            }
 
             mapa.add(row)
         }
@@ -105,29 +118,19 @@ export function addRows(){
                 );
 
                 veiculo.ref = caminhao
-
                 row.add(caminhao);
             });
 
+            if(rowData.maca){
+                const maca = Maca();
+                rowData.maca.ref = maca
+                row.add(maca)
+            }
             mapa.add(row)
         }
 
-        if(rowData.type === 'rio'){
-            const row = Estrada(rowIndex);
 
-            rowData.veiculos.forEach((veiculo) =>{
-                const caminhao = Tronco(
-                    veiculo.inicialTileIndex,
-                    rowData.direcao,
-                    veiculo.color
-                );
 
-                veiculo.ref = caminhao
 
-                row.add(caminhao);
-            });
-
-            mapa.add(row)
-        }
     })
 }

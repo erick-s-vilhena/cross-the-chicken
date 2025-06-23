@@ -1,21 +1,5 @@
 import { MoveJogador } from "./components/Jogador";
 
-document.querySelector('.front')?.addEventListener('click', ()=> { 
-    MoveJogador('front')
-})
-
-document.querySelector('.back')?.addEventListener('click', ()=> { 
-    MoveJogador('back')
-})
-
-document.querySelector('.left')?.addEventListener('click', ()=> { 
-    MoveJogador('left')
-})
-
-document.querySelector('.right')?.addEventListener('click', ()=> { 
-    MoveJogador('right')
-})
-
 let click_W = false;
 let click_S = false;
 let click_A = false;

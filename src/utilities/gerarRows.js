@@ -11,9 +11,14 @@ export function gerarRows(){
     }
     
 
-    for(let i = 0; i < 10; i++){
-        const rowData = Linha();
+    for(let i = 0; i < 9; i++){
+        const rowData = gerarRua();
 
+        if(i == 4){
+            rowData.maca = {
+                type: 'maca',
+            }
+        }
         rows.push(rowData);
     }
     
@@ -24,7 +29,7 @@ function randomElemento(array){
     return array[Math.floor(Math.random() * array.length)];
 }
 
-function Linha(){
+function gerarRua(){
     const type =  randomElemento(['carro', 'caminhao'])
 
     if(type === 'carro') {
